@@ -1,6 +1,7 @@
 import React from 'react';
-import Formulario from './components/Formulario';
-import Lista from './components/Lista';
+import Formulario from '../Formulario';
+import Lista from '../Lista';
+import './style.scss';
 
 function App() {
   return (

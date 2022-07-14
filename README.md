@@ -127,3 +127,16 @@ function App() {
   );
 }
 ~~~
+
+## Estilizando 
+
+### Utilizando Sass
+
+1. Instalando o Sass.
+~~~javascript
+npm install --save-dev sass
+~~~
+2. No arquivo index.css, adicione os reset's
+3. Crie uma pasta em *_src_* chamada *_pages_* e mova o arquivo *_App.tsx_* para dentro dela. 
+4. Crie um novo arquivo chamado *_style.scss_*
+5. No arquivo *_App.tsx_*, importe o *_style.scss_*

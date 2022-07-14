@@ -68,3 +68,62 @@ function App() {
 }
 ~~~
 
+## Listas 
+
+1. Dentro de *_components_* criar uma pasta *_Lista_* 
+2. Dentro da pasta *_Lista_*, criar um arquivo *_index.tsx_*
+3. No arquivo *_index.tsx_*, importar o react
+~~~javascript
+ import React from 'react';
+ ~~~
+4. Desta vez usando function_components, criar a função Lista
+~~~javascript
+    function Lista(){
+        return (
+            <aside>
+            </aside>
+        )
+    }
+    export default Lista;
+~~~
+
+5. Criar as tags para incrementar a função
+
+~~~javascript
+    function Lista(){
+        return (
+            <aside>
+                <h2>Estudos do dia</h2>
+                <ul>
+                    <li>
+                        <h3>React</h3>
+                        <span>02:00:00</span>
+                    </li>
+                    <li>
+                        <h3>Javascript</h3>
+                        <span>01:00:00</span>
+                    </li>
+                </ul>
+            </aside>
+        )
+    }
+    export default Lista;
+~~~
+6. No arquivo App.tsx, importe a nova função
+
+~~~javascript
+    import Lista from './components/Lista'
+~~~
+
+7. Renderize a função
+
+~~~javascript
+    function App() {
+  return (
+    <div className="App">
+      <Formulario />
+      <Lista />
+    </div>
+  );
+}
+~~~

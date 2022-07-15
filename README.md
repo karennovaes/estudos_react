@@ -132,7 +132,7 @@ function App() {
 
 ### Utilizando Sass
 
-1. Instalando o Sass.
+1. Instalar o Sass.
 ~~~javascript
 npm install --save-dev sass
 ~~~
@@ -140,3 +140,30 @@ npm install --save-dev sass
 3. Crie uma pasta em *_src_* chamada *_pages_* e mova o arquivo *_App.tsx_* para dentro dela. 
 4. Crie um novo arquivo chamado *_style.scss_*
 5. No arquivo *_App.tsx_*, importe o *_style.scss_*
+
+### Utilizando CSS Modules
+
+1. Instalar o css modules.
+~~~javascript
+npm install -D typescript-plugin-css-modules
+~~~
+
+2. Adicionar o plugion no tsconfig.json
+~~~javascript
+{
+  "compilerOptions": {
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+  }
+}
+~~~
+3. No arquivo index.css, adicione os reset's
+4. Crie uma pasta em *_src_* chamada *_pages_* e mova o arquivo *_App.tsx_* para dentro dela. 
+5.  Crie um novo arquivo chamado *_app.mudule.scss_*
+6. No arquivo *_App.tsx_*, importe o *_app.module.scss_*
+~~~javascript
+import style from './app.module.scss'
+~~~
+7. Altere o className como no exemplo:
+~~~javascript
+<div className='{style.AppStyle}'>
+~~~

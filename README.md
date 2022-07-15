@@ -167,3 +167,21 @@ import style from './app.module.scss'
 ~~~javascript
 <div className='{style.AppStyle}'>
 ~~~
+
+## Props
+
+1. Entre no arquivo *_src/components/Botao/index.tsx_*
+
+2. Na função render, referencie a prop
+~~~javascript
+<button className={style.botao}>{this.props.children}</button>
+
+~~~
+3. Entre no arquivo *_src/components/Formulario/index.tsx_*
+4. Crie uma prop
+~~~javascript
+<Botao
+    Adicionar
+/>
+
+~~~

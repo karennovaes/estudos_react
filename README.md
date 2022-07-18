@@ -185,3 +185,22 @@ import style from './app.module.scss'
 />
 
 ~~~
+
+## Estados
+
+1. Altere o array tarefas para obter o estado: 
+~~~javascript
+const [tarefas, setTarefas] = useState([{
+    ....
+}]);
+
+~~~
+
+2. Para criar uma nova tarefa, por exemplo, adicione a propriedade *_onClick_* dentro da lista:
+
+~~~javascript
+<h2 onClick={() => {
+    tarefas = [...tarefas, {tarefa: "Estudar estado", tempo: "05:00:00"}]
+}}>Estudos do dia</h2>
+
+~~~

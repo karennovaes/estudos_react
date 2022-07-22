@@ -1,46 +1,206 @@
-# Getting Started with Create React App
+# estudos_react
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Criação do projeto
 
-## Available Scripts
+1. Executar o comando de criação do app, usando o template de typescript e usando o npm.
 
-In the project directory, you can run:
+```npx create-react-app --template typescript --use-npm . my_app  ```
 
-### `npm start`
+    * npx create-react-app é o pacote que vamos executar;
+    * --template typescript é o template Typescript para nosso projeto;
+    * --use-npm informa explicitamente que queremos usar o NPM para gerenciar os pacotes;
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. Entre na pasta do projeto e execute: 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```npm start  ```
 
-### `npm test`
+## Estrutura do código
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **package.json**: padrão para qualquer projeto que utiliza o NPM, e tem o nome do projeto, a versão, as dependências que está usando e se ele é privado ou não. 
+- **package-lock.json** é um arquivo fechado que nunca vamos alterar. Normalmente quando instalamos alguma dependência ou coisas do tipo, todo o histórico é feito nesse arquivo.
+- A pasta **node_modules** contém literalmente todos os pacotes que foram instalados no projeto. Nós também não vamos alterar o conteúdo dessa pasta, pois ele é gerenciado pelo NPM.
+- **.gitignore** é um arquivo do Git, referente a tudo que o Git irá ignorar quando fizermos commits
+- **tsconfig.json** possui algumas configurações de Typescript
+- **App.tsx**  tem os códigos HTML da página, incluindo o logo e o texto que está sendo exibido na tela.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Componentes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Criar pasta *_components_* dentro de *_src_*
+2. Dentro de *_components_* criar uma pasta *_Botao_* 
+2. Dentro da pasta *_Botao_*, criar um arquivo *_index.tsx_*
+3. No arquivo *_index.tsx_*, importar o react
+~~~javascript
+ import React from 'react';
+ ~~~
+4. Criar a classe Botao
+~~~javascript
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+class Botao extends React.Component {
+    render(){
+        return (
+            <button>Botão</button>
+        )
+    }
+}
+~~~
+5. Exportar o botão
 
-### `npm run eject`
+~~~javascript
+export default Botao;
+~~~
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+6. Voltando para *_App.tsx_*, importar o Botao.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+~~~javascript
+import Botao from './components/Botao';
+~~~
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+7. Renderizar o Botao
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+~~~javascript
+function App() {
+  return (
+    <div className="App">
+      <Botao />
+    </div>
+  );
+}
+~~~
 
-## Learn More
+## Listas 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Dentro de *_components_* criar uma pasta *_Lista_* 
+2. Dentro da pasta *_Lista_*, criar um arquivo *_index.tsx_*
+3. No arquivo *_index.tsx_*, importar o react
+~~~javascript
+ import React from 'react';
+ ~~~
+4. Desta vez usando function_components, criar a função Lista
+~~~javascript
+    function Lista(){
+        return (
+            <aside>
+            </aside>
+        )
+    }
+    export default Lista;
+~~~
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. Criar as tags para incrementar a função
+
+~~~javascript
+    function Lista(){
+        return (
+            <aside>
+                <h2>Estudos do dia</h2>
+                <ul>
+                    <li>
+                        <h3>React</h3>
+                        <span>02:00:00</span>
+                    </li>
+                    <li>
+                        <h3>Javascript</h3>
+                        <span>01:00:00</span>
+                    </li>
+                </ul>
+            </aside>
+        )
+    }
+    export default Lista;
+~~~
+6. No arquivo App.tsx, importe a nova função
+
+~~~javascript
+    import Lista from './components/Lista'
+~~~
+
+7. Renderize a função
+
+~~~javascript
+    function App() {
+  return (
+    <div className="App">
+      <Formulario />
+      <Lista />
+    </div>
+  );
+}
+~~~
+
+## Estilizando 
+
+### Utilizando Sass
+
+1. Instalar o Sass.
+~~~javascript
+npm install --save-dev sass
+~~~
+2. No arquivo index.css, adicione os reset's
+3. Crie uma pasta em *_src_* chamada *_pages_* e mova o arquivo *_App.tsx_* para dentro dela. 
+4. Crie um novo arquivo chamado *_style.scss_*
+5. No arquivo *_App.tsx_*, importe o *_style.scss_*
+
+### Utilizando CSS Modules
+
+1. Instalar o css modules.
+~~~javascript
+npm install -D typescript-plugin-css-modules
+~~~
+
+2. Adicionar o plugion no tsconfig.json
+~~~javascript
+{
+  "compilerOptions": {
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+  }
+}
+~~~
+3. No arquivo index.css, adicione os reset's
+4. Crie uma pasta em *_src_* chamada *_pages_* e mova o arquivo *_App.tsx_* para dentro dela. 
+5.  Crie um novo arquivo chamado *_app.mudule.scss_*
+6. No arquivo *_App.tsx_*, importe o *_app.module.scss_*
+~~~javascript
+import style from './app.module.scss'
+~~~
+7. Altere o className como no exemplo:
+~~~javascript
+<div className='{style.AppStyle}'>
+~~~
+
+## Props
+
+1. Entre no arquivo *_src/components/Botao/index.tsx_*
+
+2. Na função render, referencie a prop
+~~~javascript
+<button className={style.botao}>{this.props.children}</button>
+
+~~~
+3. Entre no arquivo *_src/components/Formulario/index.tsx_*
+4. Crie uma prop
+~~~javascript
+<Botao
+    Adicionar
+/>
+
+~~~
+
+## Estados
+
+1. Altere o array tarefas para obter o estado: 
+~~~javascript
+const [tarefas, setTarefas] = useState([{
+    ....
+}]);
+
+~~~
+
+2. Para criar uma nova tarefa, por exemplo, adicione a propriedade *_onClick_* dentro da lista:
+
+~~~javascript
+<h2 onClick={() => {
+    tarefas = [...tarefas, {tarefa: "Estudar estado", tempo: "05:00:00"}]
+}}>Estudos do dia</h2>
+
+~~~

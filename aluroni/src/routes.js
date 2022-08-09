@@ -16,7 +16,6 @@ export default function AppRouter() {
             <Route index element={<Inicio />} />
             <Route path='cardapio' element={<Cardapio />} />
           </Route>
-
         </Routes>
       </Router>
     </main>
